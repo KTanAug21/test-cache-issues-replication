@@ -1,9 +1,16 @@
 <?php
 
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('cache', function () {
+    return Cache::remember('key', now()->addMinutes(2), function (): array {
+        return ['key' => 'value'];
+    });
 });
 
 Route::middleware([
