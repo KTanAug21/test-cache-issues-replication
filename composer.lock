@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f0aed153cd5077a4e4cb5c5f0ccd758d",
+    "content-hash": "8fb417708e361bf73a12f4166478aa2f",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1225,16 +1225,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "11.x-dev",
+            "version": "v11.38.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "4ae015b32b636c304ef59a7266d20caac09b0538"
+                "reference": "9d290aa90fcad44048bedca5219d2b872e98772a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/4ae015b32b636c304ef59a7266d20caac09b0538",
-                "reference": "4ae015b32b636c304ef59a7266d20caac09b0538",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/9d290aa90fcad44048bedca5219d2b872e98772a",
+                "reference": "9d290aa90fcad44048bedca5219d2b872e98772a",
                 "shasum": ""
             },
             "require": {
@@ -1389,7 +1389,6 @@
                 "symfony/postmark-mailer": "Required to enable support for the Postmark mail transport (^7.0).",
                 "symfony/psr-http-message-bridge": "Required to use PSR-7 bridging features (^7.0)."
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -1436,7 +1435,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-01-17T16:50:05+00:00"
+            "time": "2025-01-15T00:06:46+00:00"
         },
         {
             "name": "laravel/jetstream",
@@ -9684,9 +9683,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "laravel/framework": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
