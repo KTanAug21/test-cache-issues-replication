@@ -13,6 +13,14 @@ Route::get('cache', function () {
     });
 });
 
+Route::get('integrations', function () {
+    $user = \App\Models\User::query()->where('email', 'mateus@junges.dev')->first();
+
+    $user->loadMissing('integrations');
+
+    return $user;
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
