@@ -49,7 +49,7 @@ Route::get('test-get', function(){
 
 Route::get('test-get-loadmissing', function(){
     $user = \App\Models\User::query()->where('email', 'kathryn2@laravel.com')->first();
-    $user->loadMissing( $user );
+    $user->loadMissing( 'integrations');
 
     dd( $user);
 });
