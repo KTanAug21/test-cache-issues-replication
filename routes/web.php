@@ -72,8 +72,7 @@ use Illuminate\Support\Facades\DB;
 Route::get('test-query',function(){
     $integrations = DB::select('
         SELECT * FROM "integrations"
-        WHERE "owner_id" IN (?) AND "owner_type" = ?',
-        [3, 'user']
+        WHERE "owner_id" IN (3) AND "owner_type" = "user"'
     );
     dd( $integrations);
 });
