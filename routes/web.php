@@ -28,7 +28,7 @@ Route::get('test', function(){
         'name' => 'Kathryn Tan',
     ]);
 
-    Integration::query()->create([
+    \App\Models\Integration::query()->create([
         'owner_type' => 'user',
         'owner_id' => strval($user->id),
         'provider' => 'dummy_provider'
