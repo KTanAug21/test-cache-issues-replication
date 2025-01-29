@@ -21,7 +21,7 @@ Route::get('integrations', function () {
     return $user;
 });
 
-Route::get('test', function(){
+Route::get('create-test-user', function(){
     $user = \App\Models\User::query()->create([
         'email' => 'kathryn2@laravel.com',
         'password' => bcrypt('password'),
@@ -38,21 +38,13 @@ Route::get('test', function(){
 });
 
 Route::get('test-get', function(){
-    $user = \App\Models\User::query()->where('email', 'kathryn@laravel.com')->first();
- 
+    $user = \App\Models\User::first();
     $user->loadMissing('integrations');
 
     return $user;
    
 });
 
-
-Route::get('test-get-loadmissing', function(){
-    $user = \App\Models\User::query()->where('email', 'kathryn2@laravel.com')->first();
-    $user->loadMissing( 'integrations');
-
-    dd( $user);
-});
 
 Route::get('test-get-model', function(){
     $user = \App\Models\User::query()->where('email', 'kathryn2@laravel.com')->first();
@@ -70,9 +62,19 @@ use Illuminate\Support\Facades\DB;
 
 
 Route::get('test-query',function(){
+
+    $user = \App\Models\User::first();
+    if( $user==null ){
+        $user = \App\Models\User::query()->create([
+            'email' => 'kathryn2@laravel.com',
+            'password' => bcrypt('password'),
+            'name' => 'Kathryn Tan',
+        ]);
+    }
+
     $integrations = DB::select('
         SELECT * FROM "integrations"
-        WHERE "owner_id" IN (3) AND "owner_type" = "user"'
+        WHERE "integrations"."owner_id" IN ('.$user->id.') AND "owner_type" = "user"'
     );
     dd( $integrations);
 });
