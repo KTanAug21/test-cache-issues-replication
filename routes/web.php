@@ -46,6 +46,23 @@ Route::get('test-get', function(){
    
 });
 
+Route::get('test-get-ok', function(){
+    $user = \App\Models\User::query()->where('email', 'kathryn2@laravel.com')->first();
+
+    print_r($user);
+    \App\Models\Integration::query()->create([
+        'owner_type' => 'user',
+        'owner_id' => strval($user->id),
+        'provider' => 'dummy_provider'
+    ]);
+   
+    $inta = \App\Models\Integration::where('owner_id',strval($user->id))->first();
+
+    dd( $inta);
+    return $user;
+   
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
