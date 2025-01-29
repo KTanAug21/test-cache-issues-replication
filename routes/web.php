@@ -15,10 +15,35 @@ Route::get('cache', function () {
 
 Route::get('integrations', function () {
     $user = \App\Models\User::query()->where('email', 'mateus@junges.dev')->first();
-
+ 
     $user->loadMissing('integrations');
 
     return $user;
+});
+
+Route::get('test', function(){
+    $user = \App\Models\User::query()->create([
+        'email' => 'kathryn@laravel.com',
+        'password' => bcrypt('password'),
+        'name' => 'Kathryn Tan',
+    ]);
+
+    Integration::query()->create([
+        'owner_type' => 'user',
+        'owner_id' => strval($user->id),
+        'provider' => 'dummy_provider'
+    ]);
+    dd('ok');
+   
+});
+
+Route::get('test-get', function(){
+    $user = \App\Models\User::query()->where('email', 'kathryn@laravel.com')->first();
+ 
+    $user->loadMissing('integrations');
+
+    return $user;
+   
 });
 
 Route::middleware([
