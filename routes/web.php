@@ -23,14 +23,14 @@ Route::get('integrations', function () {
 
 Route::get('test', function(){
     $user = \App\Models\User::query()->create([
-        'email' => 'kathryn@laravel.com',
+        'email' => 'kathryn2@laravel.com',
         'password' => bcrypt('password'),
         'name' => 'Kathryn Tan',
     ]);
 
     \App\Models\Integration::query()->create([
         'owner_type' => 'user',
-        'owner_id' => strval($user->id),
+        'owner_id' => "3",
         'provider' => 'dummy_provider'
     ]);
     dd('ok');
