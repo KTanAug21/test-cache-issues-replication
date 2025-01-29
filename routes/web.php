@@ -65,6 +65,18 @@ Route::get('test-get-model', function(){
    
 });
 
+use Illuminate\Support\Facades\DB;
+
+
+
+Route::get('test-query',function(){
+    $integrations = DB::select('
+        SELECT * FROM "integrations"
+        WHERE "owner_id" IN (?) AND "owner_type" = ?',
+        [3, 'user']
+    );
+    dd( $integrations);
+});
 
 Route::get('test-get-allintegrations', function(){
  
