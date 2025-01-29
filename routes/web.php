@@ -65,6 +65,17 @@ Route::get('test-get-model', function(){
    
 });
 
+
+Route::get('test-get-allintegrations', function(){
+ 
+    
+    $inta = \App\Models\Integration::all();
+
+    dd( $inta);
+    return $user;
+   
+});
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
